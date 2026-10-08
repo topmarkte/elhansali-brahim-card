@@ -1,4 +1,4 @@
-const CACHE_NAME = "elhansali-brahim-card-v3";
+const CACHE_NAME = "elhansali-brahim-card-v4";
 
 const FILES_TO_CACHE = [
     "./",

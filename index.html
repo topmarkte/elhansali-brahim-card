@@ -804,57 +804,33 @@ window.addEventListener(
 
         deferredPrompt = event;
 
-        document.getElementById(
-            "installBtn"
-        ).style.display = "block";
+        const isAndroid =
+            /android/i.test(navigator.userAgent);
+
+        if(isAndroid){
+            document.getElementById("installBtn").style.display = "block";
+        }
     }
 );
 
 
 async function installApp(){
 
-    /* Android / Chrome */
     if(deferredPrompt){
 
         deferredPrompt.prompt();
 
-        const result =
-            await deferredPrompt.userChoice;
+        const result = await deferredPrompt.userChoice;
 
         deferredPrompt = null;
 
         return;
     }
 
-
-    /* iPhone / iPad */
-    const isIOS =
-        /iphone|ipad|ipod/i.test(
-            navigator.userAgent
-        );
-
-    const isStandalone =
-        window.navigator.standalone === true ||
-        window.matchMedia(
-            "(display-mode: standalone)"
-        ).matches;
-
-
-    if(isIOS && !isStandalone){
-
-        document.getElementById(
-            "iosHelp"
-        ).style.display = "block";
-
-        return;
-    }
-
-
     alert(
         "يمكنك إضافة البطاقة إلى الشاشة الرئيسية من قائمة المتصفح."
     );
 }
-
 
 /* =========================
    SERVICE WORKER

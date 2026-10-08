@@ -810,6 +810,12 @@ window.addEventListener(
         if(isAndroid){
             document.getElementById("installBtn").style.display = "block";
         }
+          const isIOS =
+    /iphone|ipad|ipod/i.test(navigator.userAgent);
+
+if(isIOS){
+    document.getElementById("installBtn").style.display = "none";
+}
     }
 );
 
@@ -831,7 +837,12 @@ async function installApp(){
         "يمكنك إضافة البطاقة إلى الشاشة الرئيسية من قائمة المتصفح."
     );
 }
+const isIOSDevice =
+    /iphone|ipad|ipod/i.test(navigator.userAgent);
 
+if (isIOSDevice) {
+    document.getElementById("installBtn").style.display = "none";
+}
 /* =========================
    SERVICE WORKER
 ========================= */

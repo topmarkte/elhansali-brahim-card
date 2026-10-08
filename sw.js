@@ -1,10 +1,10 @@
-const CACHE_NAME = "elhansali-brahim-card-v4";
+const CACHE_NAME = "elhansali-brahim-card-v5";
 
 const FILES_TO_CACHE = [
     "./",
     "./index.html",
     "./manifest.json",
-    "./WhatsApp%20Image%202026-10-08%20at%2020.40.21.jpeg",
+    "./19036_resized.png",
 
     /* QR Code */
     "https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js",

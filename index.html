@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Elhansali Brahim | Carte Digitale</title>
+
+<meta name="theme-color" content="#000000">
+
+<link rel="manifest" href="./manifest.json">
+
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Elhansali Brahim">
+
+<link rel="apple-touch-icon" href="./logo.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet">
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+    --gold:#f5c542;
+    --gold-light:#ffd966;
+    --black:#050505;
+    --black2:#101010;
+    --white:#ffffff;
+    --gray:#bdbdbd;
+}
+
+body{
+    font-family:'Cairo','Poppins',sans-serif;
+    background:
+        radial-gradient(circle at top,#25200d 0%,#090909 35%,#000 75%);
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+.container{
+    width:100%;
+    max-width:600px;
+    margin:auto;
+    padding:22px 15px 40px;
+}
+
+.language-box{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin-bottom:20px;
+}
+
+.language-box button{
+    border:1px solid #80681e;
+    background:#090909;
+    color:#ddd;
+    padding:7px 14px;
+    border-radius:20px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.language-box button.active,
+.language-box button:hover{
+    background:var(--gold);
+    color:#000;
+    border-color:var(--gold);
+}
+
+.card{
+    position:relative;
+    background:
+        linear-gradient(145deg,#111 0%,#030303 70%);
+    border:1px solid rgba(245,197,66,.65);
+    border-radius:30px;
+    padding:24px 18px 30px;
+    box-shadow:
+        0 0 35px rgba(245,197,66,.12),
+        inset 0 0 30px rgba(255,255,255,.015);
+    overflow:hidden;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    border-radius:50%;
+    background:rgba(245,197,66,.07);
+    filter:blur(50px);
+    top:-120px;
+    right:-100px;
+}
+
+.logo{
+    position:relative;
+    width:180px;
+    height:180px;
+    margin:0 auto 18px;
+    border-radius:30px;
+    object-fit:cover;
+    display:block;
+    border:2px solid var(--gold);
+    box-shadow:0 0 25px rgba(245,197,66,.25);
+}
+
+.name{
+    position:relative;
+    text-align:center;
+    font-size:29px;
+    font-weight:800;
+    color:var(--gold);
+    margin-bottom:6px;
+}
+
+.tagline{
+    position:relative;
+    text-align:center;
+    color:#e7e7e7;
+    font-size:14px;
+    line-height:1.8;
+    margin-bottom:8px;
+}
+
+.business{
+    position:relative;
+    text-align:center;
+    color:var(--gold-light);
+    font-size:14px;
+    font-weight:700;
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.buttons{
+    position:relative;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:11px;
+}
+
+.btn{
+    min-height:55px;
+    border:1px solid #705b1c;
+    border-radius:15px;
+    background:linear-gradient(145deg,#151515,#070707);
+    color:white;
+    text-decoration:none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    padding:10px;
+    font-size:14px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    border-color:var(--gold);
+    box-shadow:0 5px 20px rgba(245,197,66,.15);
+}
+
+.btn.gold{
+    background:linear-gradient(145deg,#f8cf55,#c99b21);
+    color:#000;
+    border-color:var(--gold);
+}
+
+.icon{
+    font-size:21px;
+}
+
+.section{
+    margin-top:20px;
+    padding:18px;
+    border:1px solid #4d4018;
+    border-radius:20px;
+    background:rgba(255,255,255,.025);
+}
+
+.section-title{
+    color:var(--gold);
+    font-size:17px;
+    font-weight:800;
+    text-align:center;
+    margin-bottom:14px;
+}
+
+.contact-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding:12px 0;
+    border-bottom:1px solid rgba(245,197,66,.12);
+}
+
+.contact-item:last-child{
+    border-bottom:0;
+}
+
+.contact-info{
+    text-align:right;
+}
+
+.contact-name{
+    color:var(--gold-light);
+    font-weight:700;
+    font-size:14px;
+}
+
+.contact-number{
+    direction:ltr;
+    display:block;
+    color:#ddd;
+    font-size:13px;
+    margin-top:2px;
+}
+
+.small-btn{
+    min-width:92px;
+    padding:8px 11px;
+    border-radius:12px;
+    background:#111;
+    border:1px solid #735d1d;
+    color:white;
+    text-decoration:none;
+    text-align:center;
+    font-size:12px;
+    font-weight:700;
+}
+
+.small-btn:hover{
+    background:var(--gold);
+    color:#000;
+}
+
+.qr-box{
+    text-align:center;
+}
+
+#qrcode{
+    background:white;
+    padding:10px;
+    width:170px;
+    height:170px;
+    margin:12px auto;
+    border-radius:15px;
+}
+
+.install-area{
+    margin-top:20px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.install-btn{
+    width:100%;
+    min-height:55px;
+    border-radius:15px;
+    border:1px solid var(--gold);
+    background:linear-gradient(145deg,#f8cf55,#c99b21);
+    color:#000;
+    font-weight:800;
+    font-size:15px;
+    cursor:pointer;
+}
+
+.ios-help{
+    display:none;
+    padding:15px;
+    border:1px solid #5d4b18;
+    border-radius:15px;
+    background:#0c0c0c;
+    color:#ddd;
+    font-size:13px;
+    line-height:1.9;
+    text-align:center;
+}
+
+.share-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:10px;
+}
+
+.footer{
+    text-align:center;
+    margin-top:25px;
+    color:#777;
+    font-size:11px;
+}
+
+.footer span{
+    color:var(--gold);
+}
+
+@media(max-width:430px){
+
+    .container{
+        padding:15px 10px 30px;
+    }
+
+    .card{
+        border-radius:24px;
+        padding:20px 13px 25px;
+    }
+
+    .logo{
+        width:155px;
+        height:155px;
+    }
+
+    .name{
+        font-size:25px;
+    }
+
+    .tagline,
+    .business{
+        font-size:13px;
+    }
+
+    .buttons{
+        gap:8px;
+    }
+
+    .btn{
+        font-size:12px;
+        min-height:52px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="language-box">
+        <button onclick="setLanguage('ar')" id="arBtn">العربية</button>
+        <button onclick="setLanguage('fr')" id="frBtn">Français</button>
+        <button onclick="setLanguage('en')" id="enBtn">English</button>
+    </div>
+
+    <main class="card">
+
+        <img src="./logo.jpg"
+             class="logo"
+             alt="Elhansali Brahim">
+
+        <h1 class="name">
+            Elhansali Brahim
+        </h1>
+
+        <p class="tagline" id="tagline">
+            تجديدات موسمية، وأقمشة أنيقة، وستائر مصممة حسب الطلب
+        </p>
+
+        <p class="business" id="business">
+            ديكور الصالون والمنزل بلمسة مغربية وعصرية
+        </p>
+
+        <div class="buttons">
+
+            <a class="btn gold"
+               href="tel:+212642839147">
+                <span class="icon">☎</span>
+                <span id="phoneText">الهاتف</span>
+            </a>
+
+            <a class="btn"
+               href="https://wa.me/212611748505"
+               target="_blank">
+                <span class="icon">💬</span>
+                <span id="brahimWhatsapp">واتساب Brahim</span>
+            </a>
+
+            <a class="btn"
+               href="https://wa.me/212651696980"
+               target="_blank">
+                <span class="icon">💬</span>
+                <span id="youssefWhatsapp">واتساب Youssef</span>
+            </a>
+
+            <a class="btn"
+               href="https://www.instagram.com/tapisserie_elhansali_brahim07"
+               target="_blank">
+                <span class="icon">◎</span>
+                <span id="instagramText">Instagram</span>
+            </a>
+
+            <a class="btn"
+               href="https://maps.app.goo.gl/yZ4Lc6ppUFVakBjP9?g_st=awb"
+               target="_blank">
+                <span class="icon">📍</span>
+                <span id="mapsText">موقعنا</span>
+            </a>
+
+            <a class="btn"
+               href="https://search.google.com/local/writereview?placeid=ChIJn2cz9bcTpw0REo99qVMYiqw"
+               target="_blank">
+                <span class="icon">⭐</span>
+                <span id="reviewText">قيّمنا على Google</span>
+            </a>
+
+        </div>
+
+        <section class="section">
+
+            <h2 class="section-title" id="contactTitle">
+                معلومات التواصل
+            </h2>
+
+            <div class="contact-item">
+
+                <div class="contact-info">
+                    <div class="contact-name" id="fixedTitle">
+                        الهاتف الثابت
+                    </div>
+
+                    <span class="contact-number">
+                        +212 642 839147
+                    </span>
+                </div>
+
+                <a class="small-btn"
+                   href="tel:+212642839147"
+                   id="callBtn">
+                    اتصال
+                </a>
+
+            </div>
+
+            <div class="contact-item">
+
+                <div class="contact-info">
+                    <div class="contact-name">
+                        Brahim
+                    </div>
+
+                    <span class="contact-number">
+                        +212 611 748505
+                    </span>
+                </div>
+
+                <a class="small-btn"
+                   href="https://wa.me/212611748505"
+                   target="_blank">
+                    WhatsApp
+                </a>
+
+            </div>
+
+            <div class="contact-item">
+
+                <div class="contact-info">
+                    <div class="contact-name">
+                        Youssef
+                    </div>
+
+                    <span class="contact-number">
+                        +212 651 696980
+                    </span>
+                </div>
+
+                <a class="small-btn"
+                   href="https://wa.me/212651696980"
+                   target="_blank">
+                    WhatsApp
+                </a>
+
+            </div>
+
+        </section>
+
+        <div class="share-row">
+
+            <button class="btn"
+                    onclick="saveContact()">
+                <span class="icon">📇</span>
+                <span id="saveText">حفظ جهة الاتصال</span>
+            </button>
+
+            <button class="btn"
+                    onclick="shareCard()">
+                <span class="icon">↗</span>
+                <span id="shareText">مشاركة البطاقة</span>
+            </button>
+
+        </div>
+
+        <section class="section qr-box">
+
+            <h2 class="section-title" id="qrTitle">
+                امسح رمز QR
+            </h2>
+
+            <div id="qrcode"></div>
+
+            <p id="qrDescription">
+                امسح الرمز للوصول إلى البطاقة الرقمية
+            </p>
+
+        </section>
+
+        <div class="install-area">
+
+            <button id="installBtn"
+                    class="install-btn"
+                    onclick="installApp()">
+                📲 إضافة البطاقة إلى الشاشة الرئيسية
+            </button>
+
+            <div id="iosHelp"
+                 class="ios-help">
+                على iPhone:
+                اضغط على زر <strong>المشاركة ↗</strong>
+                في متصفح Safari، ثم اختر
+                <strong>إضافة إلى الشاشة الرئيسية</strong>.
+            </div>
+
+        </div>
+
+        <div class="footer">
+            Elhansali Brahim
+            <br>
+            <span>Carte Digitale</span>
+        </div>
+
+    </main>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+<script>
+
+const translations = {
+
+    ar:{
+        tagline:"تجديدات موسمية، وأقمشة أنيقة، وستائر مصممة حسب الطلب",
+        business:"ديكور الصالون والمنزل بلمسة مغربية وعصرية",
+        phone:"الهاتف",
+        br:"واتساب Brahim",
+        yo:"واتساب Youssef",
+        instagram:"Instagram",
+        maps:"موقعنا",
+        review:"قيّمنا على Google",
+        contact:"معلومات التواصل",
+        fixed:"الهاتف الثابت",
+        call:"اتصال",
+        save:"حفظ جهة الاتصال",
+        share:"مشاركة البطاقة",
+        qr:"امسح رمز QR",
+        qrdesc:"امسح الرمز للوصول إلى البطاقة الرقمية",
+        install:"📲 إضافة البطاقة إلى الشاشة الرئيسية"
+    },
+
+    fr:{
+        tagline:"Rénovations saisonnières, tissus élégants et rideaux sur mesure",
+        business:"Décoration du salon et de la maison avec une touche marocaine et moderne",
+        phone:"Téléphone",
+        br:"WhatsApp Brahim",
+        yo:"WhatsApp Youssef",
+        instagram:"Instagram",
+        maps:"Notre localisation",
+        review:"Nous évaluer sur Google",
+        contact:"Informations de contact",
+        fixed:"Téléphone fixe",
+        call:"Appeler",
+        save:"Enregistrer le contact",
+        share:"Partager la carte",
+        qr:"Scanner le QR Code",
+        qrdesc:"Scannez le code pour accéder à la carte digitale",
+        install:"📲 Ajouter à l'écran d'accueil"
+    },
+
+    en:{
+        tagline:"Seasonal renovations, elegant fabrics and custom-made curtains",
+        business:"Salon and home decoration with a Moroccan and modern touch",
+        phone:"Phone",
+        br:"WhatsApp Brahim",
+        yo:"WhatsApp Youssef",
+        instagram:"Instagram",
+        maps:"Our location",
+        review:"Review us on Google",
+        contact:"Contact information",
+        fixed:"Landline",
+        call:"Call",
+        save:"Save contact",
+        share:"Share card",
+        qr:"Scan QR Code",
+        qrdesc:"Scan the code to access the digital card",
+        install:"📲 Add to Home Screen"
+    }
+
+};
+
+function setLanguage(lang){
+
+    const t = translations[lang];
+
+    document.documentElement.lang = lang;
+
+    if(lang === "ar"){
+        document.documentElement.dir = "rtl";
+    }else{
+        document.documentElement.dir = "ltr";
+    }
+
+    document.getElementById("tagline").textContent=t.tagline;
+    document.getElementById("business").textContent=t.business;
+    document.getElementById("phoneText").textContent=t.phone;
+    document.getElementById("brahimWhatsapp").textContent=t.br;
+    document.getElementById("youssefWhatsapp").textContent=t.yo;
+    document.getElementById("instagramText").textContent=t.instagram;
+    document.getElementById("mapsText").textContent=t.maps;
+    document.getElementById("reviewText").textContent=t.review;
+    document.getElementById("contactTitle").textContent=t.contact;
+    document.getElementById("fixedTitle").textContent=t.fixed;
+    document.getElementById("callBtn").textContent=t.call;
+    document.getElementById("saveText").textContent=t.save;
+    document.getElementById("shareText").textContent=t.share;
+    document.getElementById("qrTitle").textContent=t.qr;
+    document.getElementById("qrDescription").textContent=t.qrdesc;
+    document.getElementById("installBtn").textContent=t.install;
+
+    document.querySelectorAll(".language-box button")
+        .forEach(btn=>btn.classList.remove("active"));
+
+    document.getElementById(lang+"Btn")
+        .classList.add("active");
+
+    localStorage.setItem("language",lang);
+}
+
+new QRCode(
+    document.getElementById("qrcode"),
+    {
+        text:window.location.href,
+        width:150,
+        height:150,
+        colorDark:"#000000",
+        colorLight:"#ffffff"
+    }
+);
+
+
+/* ===============================
+   حفظ جهة الاتصال - محدث
+================================ */
+
+function saveContact(){
+
+    const vcard =
+`BEGIN:VCARD
+VERSION:3.0
+FN:Elhansali Brahim
+N:Elhansali;Brahim;;;
+ORG:Elhansali
+TITLE:Décoration du salon et de la maison
+NOTE:Rénovations saisonnières, tissus élégants et rideaux sur mesure. Décoration du salon et de la maison avec une touche marocaine et moderne.
+TEL;TYPE=WORK,VOICE:+212642839147
+TEL;TYPE=CELL,VOICE:+212611748505
+TEL;TYPE=CELL,VOICE:+212651696980
+URL;TYPE=Instagram:https://www.instagram.com/tapisserie_elhansali_brahim07
+URL;TYPE=GoogleMaps:https://maps.app.goo.gl/yZ4Lc6ppUFVakBjP9?g_st=awb
+END:VCARD`;
+
+    const blob = new Blob(
+        [vcard],
+        {type:"text/vcard;charset=utf-8"}
+    );
+
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+
+    a.href = url;
+    a.download = "Elhansali-Brahim.vcf";
+
+    document.body.appendChild(a);
+    a.click();
+
+    a.remove();
+
+    URL.revokeObjectURL(url);
+}
+
+
+/* ===============================
+   المشاركة
+================================ */
+
+async function shareCard(){
+
+    const shareData={
+        title:"Elhansali Brahim",
+        text:"Elhansali Brahim - Carte Digitale",
+        url:window.location.href
+    };
+
+    if(navigator.share){
+
+        try{
+            await navigator.share(shareData);
+        }catch(e){}
+
+    }else{
+
+        await navigator.clipboard.writeText(
+            window.location.href
+        );
+
+        alert("تم نسخ رابط البطاقة");
+    }
+}
+
+
+/* ===============================
+   PWA Installation
+================================ */
+
+let deferredPrompt=null;
+
+window.addEventListener(
+    "beforeinstallprompt",
+    (event)=>{
+
+        event.preventDefault();
+
+        deferredPrompt=event;
+
+        document.getElementById(
+            "installBtn"
+        ).style.display="block";
+    }
+);
+
+
+async function installApp(){
+
+    if(deferredPrompt){
+
+        deferredPrompt.prompt();
+
+        const result=
+            await deferredPrompt.userChoice;
+
+        deferredPrompt=null;
+
+        return;
+    }
+
+    const isIOS=
+        /iphone|ipad|ipod/i.test(
+            navigator.userAgent
+        );
+
+    const isStandalone=
+        window.navigator.standalone === true ||
+        window.matchMedia(
+            "(display-mode: standalone)"
+        ).matches;
+
+    if(isIOS && !isStandalone){
+
+        document.getElementById(
+            "iosHelp"
+        ).style.display="block";
+
+        return;
+    }
+
+    alert(
+        "يمكنك إضافة البطاقة إلى الشاشة الرئيسية من قائمة المتصفح."
+    );
+}
+
+
+/* ===============================
+   Service Worker
+================================ */
+
+if("serviceWorker" in navigator){
+
+    window.addEventListener(
+        "load",
+        ()=>{
+            navigator.serviceWorker
+                .register("./sw.js")
+                .catch(
+                    error=>console.log(
+                        "Service Worker:",
+                        error
+                    )
+                );
+        }
+    );
+}
+
+
+const savedLanguage=
+    localStorage.getItem("language") || "ar";
+
+setLanguage(savedLanguage);
+
+</script>
+
+</body>
+</html>

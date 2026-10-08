@@ -26,6 +26,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet">
 
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 <style>
 
 *{
@@ -166,7 +169,7 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:8px;
+    gap:9px;
     padding:10px;
     font-size:14px;
     font-weight:700;
@@ -186,7 +189,42 @@ body{
 }
 
 .icon{
-    font-size:21px;
+    width:24px;
+    text-align:center;
+    font-size:20px;
+    color:var(--gold);
+}
+
+.btn.gold .icon{
+    color:#000;
+}
+
+.whatsapp-icon{
+    color:#25D366;
+}
+
+.instagram-icon{
+    color:#E1306C;
+}
+
+.google-icon{
+    color:#FFD43B;
+}
+
+.map-icon{
+    color:#EA4335;
+}
+
+.contact-icon{
+    color:var(--gold);
+}
+
+.share-icon{
+    color:var(--gold);
+}
+
+.install-icon{
+    color:#000;
 }
 
 .section{
@@ -354,7 +392,6 @@ body{
 
 </style>
 </head>
-
 <body>
 
 <div class="container">
@@ -367,9 +404,9 @@ body{
 
     <main class="card">
 
-       <img src="./WhatsApp%20Image%202026-10-08%20at%2020.40.21.jpeg"
-     class="logo"
-     alt="Elhansali Brahim">
+        <img src="./WhatsApp%20Image%202026-10-08%20at%2020.40.21.jpeg"
+             class="logo"
+             alt="Elhansali Brahim">
 
         <h1 class="name">
             Elhansali Brahim
@@ -387,42 +424,54 @@ body{
 
             <a class="btn gold"
                href="tel:+212642839147">
-                <span class="icon">☎</span>
+                <span class="icon">
+                    <i class="fa-solid fa-phone"></i>
+                </span>
                 <span id="phoneText">الهاتف</span>
             </a>
 
             <a class="btn"
                href="https://wa.me/212611748505"
                target="_blank">
-                <span class="icon">💬</span>
+                <span class="icon whatsapp-icon">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </span>
                 <span id="brahimWhatsapp">واتساب Brahim</span>
             </a>
 
             <a class="btn"
                href="https://wa.me/212651696980"
                target="_blank">
-                <span class="icon">💬</span>
+                <span class="icon whatsapp-icon">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </span>
                 <span id="youssefWhatsapp">واتساب Youssef</span>
             </a>
 
             <a class="btn"
                href="https://www.instagram.com/tapisserie_elhansali_brahim07"
                target="_blank">
-                <span class="icon">◎</span>
+                <span class="icon instagram-icon">
+                    <i class="fa-brands fa-instagram"></i>
+                </span>
                 <span id="instagramText">Instagram</span>
             </a>
 
             <a class="btn"
                href="https://maps.app.goo.gl/yZ4Lc6ppUFVakBjP9?g_st=awb"
                target="_blank">
-                <span class="icon">📍</span>
+                <span class="icon map-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                </span>
                 <span id="mapsText">موقعنا</span>
             </a>
 
             <a class="btn"
                href="https://search.google.com/local/writereview?placeid=ChIJn2cz9bcTpw0REo99qVMYiqw"
                target="_blank">
-                <span class="icon">⭐</span>
+                <span class="icon google-icon">
+                    <i class="fa-brands fa-google"></i>
+                </span>
                 <span id="reviewText">قيّمنا على Google</span>
             </a>
 
@@ -449,6 +498,7 @@ body{
                 <a class="small-btn"
                    href="tel:+212642839147"
                    id="callBtn">
+                    <i class="fa-solid fa-phone"></i>
                     اتصال
                 </a>
 
@@ -469,6 +519,7 @@ body{
                 <a class="small-btn"
                    href="https://wa.me/212611748505"
                    target="_blank">
+                    <i class="fa-brands fa-whatsapp whatsapp-icon"></i>
                     WhatsApp
                 </a>
 
@@ -489,6 +540,7 @@ body{
                 <a class="small-btn"
                    href="https://wa.me/212651696980"
                    target="_blank">
+                    <i class="fa-brands fa-whatsapp whatsapp-icon"></i>
                     WhatsApp
                 </a>
 
@@ -500,13 +552,17 @@ body{
 
             <button class="btn"
                     onclick="saveContact()">
-                <span class="icon">📇</span>
+                <span class="icon contact-icon">
+                    <i class="fa-solid fa-address-card"></i>
+                </span>
                 <span id="saveText">حفظ جهة الاتصال</span>
             </button>
 
             <button class="btn"
                     onclick="shareCard()">
-                <span class="icon">↗</span>
+                <span class="icon share-icon">
+                    <i class="fa-solid fa-share-nodes"></i>
+                </span>
                 <span id="shareText">مشاركة البطاقة</span>
             </button>
 
@@ -531,15 +587,23 @@ body{
             <button id="installBtn"
                     class="install-btn"
                     onclick="installApp()">
-                📲 إضافة البطاقة إلى الشاشة الرئيسية
+
+                <i class="fa-solid fa-mobile-screen-button install-icon"></i>
+
+                <span id="installText">
+                    إضافة البطاقة إلى الشاشة الرئيسية
+                </span>
+
             </button>
 
             <div id="iosHelp"
                  class="ios-help">
+
                 على iPhone:
                 اضغط على زر <strong>المشاركة ↗</strong>
                 في متصفح Safari، ثم اختر
                 <strong>إضافة إلى الشاشة الرئيسية</strong>.
+
             </div>
 
         </div>
@@ -576,7 +640,7 @@ const translations = {
         share:"مشاركة البطاقة",
         qr:"امسح رمز QR",
         qrdesc:"امسح الرمز للوصول إلى البطاقة الرقمية",
-        install:"📲 إضافة البطاقة إلى الشاشة الرئيسية"
+        install:"إضافة البطاقة إلى الشاشة الرئيسية"
     },
 
     fr:{
@@ -595,7 +659,7 @@ const translations = {
         share:"Partager la carte",
         qr:"Scanner le QR Code",
         qrdesc:"Scannez le code pour accéder à la carte digitale",
-        install:"📲 Ajouter à l'écran d'accueil"
+        install:"Ajouter à l'écran d'accueil"
     },
 
     en:{
@@ -614,7 +678,7 @@ const translations = {
         share:"Share card",
         qr:"Scan QR Code",
         qrdesc:"Scan the code to access the digital card",
-        install:"📲 Add to Home Screen"
+        install:"Add to Home Screen"
     }
 
 };
@@ -646,7 +710,7 @@ function setLanguage(lang){
     document.getElementById("shareText").textContent=t.share;
     document.getElementById("qrTitle").textContent=t.qr;
     document.getElementById("qrDescription").textContent=t.qrdesc;
-    document.getElementById("installBtn").textContent=t.install;
+    document.getElementById("installText").textContent=t.install;
 
     document.querySelectorAll(".language-box button")
         .forEach(btn=>btn.classList.remove("active"));
@@ -667,14 +731,7 @@ new QRCode(
         colorLight:"#ffffff"
     }
 );
-
-
-/* ===============================
-   حفظ جهة الاتصال - محدث
-================================ */
-
-function saveContact(){
-
+      function saveContact(){
     const vcard =
 `BEGIN:VCARD
 VERSION:3.0
@@ -698,26 +755,20 @@ END:VCARD`;
     const url = URL.createObjectURL(blob);
 
     const a = document.createElement("a");
-
     a.href = url;
     a.download = "Elhansali-Brahim.vcf";
 
     document.body.appendChild(a);
     a.click();
-
     a.remove();
 
     URL.revokeObjectURL(url);
 }
 
 
-/* ===============================
-   المشاركة
-================================ */
-
 async function shareCard(){
 
-    const shareData={
+    const shareData = {
         title:"Elhansali Brahim",
         text:"Elhansali Brahim - Carte Digitale",
         url:window.location.href
@@ -740,60 +791,65 @@ async function shareCard(){
 }
 
 
-/* ===============================
-   PWA Installation
-================================ */
+/* =========================
+   INSTALLATION PWA
+========================= */
 
-let deferredPrompt=null;
+let deferredPrompt = null;
 
 window.addEventListener(
     "beforeinstallprompt",
-    (event)=>{
+    (event) => {
 
         event.preventDefault();
 
-        deferredPrompt=event;
+        deferredPrompt = event;
 
         document.getElementById(
             "installBtn"
-        ).style.display="block";
+        ).style.display = "block";
     }
 );
 
 
 async function installApp(){
 
+    /* Android / Chrome */
     if(deferredPrompt){
 
         deferredPrompt.prompt();
 
-        const result=
+        const result =
             await deferredPrompt.userChoice;
 
-        deferredPrompt=null;
+        deferredPrompt = null;
 
         return;
     }
 
-    const isIOS=
+
+    /* iPhone / iPad */
+    const isIOS =
         /iphone|ipad|ipod/i.test(
             navigator.userAgent
         );
 
-    const isStandalone=
+    const isStandalone =
         window.navigator.standalone === true ||
         window.matchMedia(
             "(display-mode: standalone)"
         ).matches;
 
+
     if(isIOS && !isStandalone){
 
         document.getElementById(
             "iosHelp"
-        ).style.display="block";
+        ).style.display = "block";
 
         return;
     }
+
 
     alert(
         "يمكنك إضافة البطاقة إلى الشاشة الرئيسية من قائمة المتصفح."
@@ -801,29 +857,35 @@ async function installApp(){
 }
 
 
-/* ===============================
-   Service Worker
-================================ */
+/* =========================
+   SERVICE WORKER
+========================= */
 
 if("serviceWorker" in navigator){
 
     window.addEventListener(
         "load",
-        ()=>{
+        () => {
+
             navigator.serviceWorker
                 .register("./sw.js")
                 .catch(
-                    error=>console.log(
-                        "Service Worker:",
-                        error
-                    )
+                    error =>
+                        console.log(
+                            "Service Worker:",
+                            error
+                        )
                 );
         }
     );
 }
 
 
-const savedLanguage=
+/* =========================
+   LANGUAGE
+========================= */
+
+const savedLanguage =
     localStorage.getItem("language") || "ar";
 
 setLanguage(savedLanguage);
